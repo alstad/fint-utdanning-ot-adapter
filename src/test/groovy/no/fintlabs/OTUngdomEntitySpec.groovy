@@ -8,7 +8,7 @@ import spock.lang.Specification
 class OTUngdomEntitySpec extends Specification {
 
     def "test toEntity method"() {
-        given: "A BehandlingResource object"
+        given: "A OTUngdomResource object"
         OTUngdomResource oTUngdomResource = new OTUngdomResource()
 
         Identifikator systemId = new Identifikator()
@@ -20,7 +20,7 @@ class OTUngdomEntitySpec extends Specification {
         when: "Calling the toEntity method"
         OTUngdomEntity oTUngdomEntity = OTUngdomEntity.toEntity(oTUngdomResource, "fintlabs.no")
 
-        then: "Properties of the Behandling object should match the properties of the BehandlingResource object"
+        then: "Properties of the OTUngdom object should match the properties of the OTUngdomResource object"
         oTUngdomResource.systemId.identifikatorverdi == oTUngdomEntity.getResource().getSystemId().getIdentifikatorverdi()
     }
 
