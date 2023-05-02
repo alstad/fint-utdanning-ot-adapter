@@ -1,1 +1,1 @@
-# fint-utdanning-ot-adapter
+# Utdanning ot Adapter
