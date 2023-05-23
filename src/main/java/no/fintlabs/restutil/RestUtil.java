@@ -1,5 +1,6 @@
 package no.fintlabs.restutil;
 
+import lombok.extern.slf4j.Slf4j;
 import no.fintlabs.restutil.model.RequestData;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+@Slf4j
 @Service
 public class RestUtil {
 
@@ -22,7 +24,7 @@ public class RestUtil {
 
     public RestUtil(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder
-                .baseUrl("https://www.vigo.no/vigows/rest/laktiv")
+                .baseUrl("https://www.vigo.no/vigows/rest/ot")
                 .codecs(this::configureCodecs)
                 .build();
     }
