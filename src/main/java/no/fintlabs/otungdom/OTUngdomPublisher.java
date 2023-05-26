@@ -21,8 +21,7 @@ public class OTUngdomPublisher extends ResourcePublisher<OTUngdomResource, Resou
     }
 
     @Override
-    @Scheduled(initialDelayString = "10000", fixedRateString = "500000")
-    @PostConstruct
+    @Scheduled(initialDelayString = "1000", fixedRateString = "500000")
     public void doFullSync() {
         log.info("Start full sync for resource {}", getCapability().getEntityUri());
         submit(SyncData.ofPostData(repository.getResources()));
