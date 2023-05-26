@@ -13,21 +13,18 @@ import java.util.List;
 @Repository
 public class OTUngdomRepository implements WriteableResourceRepository<OTUngdomResource> {
 
-    private final OTUngdomJpaRepository otUngdomRepository;
 
-    public OTUngdomRepository(OTUngdomJpaRepository otUngdomRepository) {
-        this.otUngdomRepository = otUngdomRepository;
+    public OTUngdomRepository() {
     }
 
     @Override
     public OTUngdomResource saveResources(OTUngdomResource tjenesteResource, RequestFintEvent requestFintEvent) {
-        OTUngdomEntity entity = OTUngdomEntity.toEntity(tjenesteResource, requestFintEvent.getOrgId());
-        return otUngdomRepository.save(entity).getResource();
+        return null;
     }
 
     @Override
     public List<OTUngdomResource> getResources() {
-        return otUngdomRepository.findAllResources();
+        return null;
     }
 
     @Override
