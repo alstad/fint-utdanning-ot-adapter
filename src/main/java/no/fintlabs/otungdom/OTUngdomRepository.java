@@ -13,8 +13,10 @@ import java.util.List;
 @Repository
 public class OTUngdomRepository implements WriteableResourceRepository<OTUngdomResource> {
 
+    private final OTUngdomService otUngdomService;
 
-    public OTUngdomRepository() {
+    public OTUngdomRepository(OTUngdomService otUngdomService) {
+        this.otUngdomService = otUngdomService;
     }
 
     @Override
@@ -24,7 +26,7 @@ public class OTUngdomRepository implements WriteableResourceRepository<OTUngdomR
 
     @Override
     public List<OTUngdomResource> getResources() {
-        return null;
+        return otUngdomService.getOTUngdomResources();
     }
 
     @Override
