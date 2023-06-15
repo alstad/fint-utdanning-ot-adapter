@@ -43,17 +43,16 @@ public class OTUngdomService {
     @SneakyThrows
     private OTUngdomResource createOTUngdomResource(OTUngdomData otUngdomData) {
         OTUngdomResource otungdomResource = new OTUngdomResource();
-        // What is the unique identifier for OTUngdomResource?
-        String identifierId = "";
+        String fodselsNummer = otUngdomData.getPerson().getFodselsnummer();
 
         Identifikator identifikator = new Identifikator();
-        identifikator.setIdentifikatorverdi(identifierId);
+        identifikator.setIdentifikatorverdi(fodselsNummer);
         otungdomResource.setSystemId(identifikator);
 
-        otungdomResource.addLink("person", Link.with(PersonResource.class, "fodselsnummer", otUngdomData.getPerson().getFodselsnummer()));
+        otungdomResource.addLink("person", Link.with(PersonResource.class, "fodselsnummer", fodselsNummer));
         otungdomResource.addLink("otstatus", Link.with(OTStatusResource.class, "systemid", otUngdomData.getOtData().getAktivitetskode()));
         otungdomResource.addLink("otenhet", Link.with(OTEnhetResource.class, "systemid", otUngdomData.getOtData().getTilknytningnr()));
-        otungdomResource.addSelf(Link.with(OTUngdomResource.class, "systemid", identifierId));
+        otungdomResource.addSelf(Link.with(OTUngdomResource.class, "systemid", fodselsNummer));
 
         return otungdomResource;
     }
