@@ -1,0 +1,18 @@
+apiVersion: fintlabs.no/v1alpha1
+kind: FintAdapter
+metadata:
+  name: utdanning-ot-adapter
+  namespace: org-dash
+  labels:
+    app.kubernetes.io/name: fint-utdanning-ot-adapter
+    app.kubernetes.io/instance: fint-utdanning-ot-adapter_org-dash
+    app.kubernetes.io/version: latest
+    app.kubernetes.io/component: adapter
+    app.kubernetes.io/part-of: fint-core
+    fintlabs.no/team: core
+    fintlabs.no/org-id: org-dot
+spec:
+  orgId: org-dot
+  note: Sender OTUngdom data til FINT
+  components:
+    - utdanning_ot
