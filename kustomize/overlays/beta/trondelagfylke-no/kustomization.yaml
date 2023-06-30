@@ -4,8 +4,8 @@ namespace: trondelagfylke-no
 resources:
   - ../../../base
 commonLabels:
-  app.kubernetes.io/name: fint-utdanning-larling-adapter
-  app.kubernetes.io/instance: fint-utdanning-larling-adapter_trondelagfylke_no
+  app.kubernetes.io/name: fint-utdanning-ot-adapter
+  app.kubernetes.io/instance: fint-utdanning-ot-adapter_trondelagfylke_no
   app.kubernetes.io/version: latest
   app.kubernetes.io/component: adapter
   app.kubernetes.io/part-of: fint-core
@@ -16,7 +16,7 @@ patches:
   - patch: |-
       - op: replace
         path: "/metadata/labels/app.kubernetes.io~1instance"
-        value: "fint-utdanning-larling-adapter_trondelagfylke_no"
+        value: "fint-utdanning-ot-adapter_trondelagfylke_no"
       - op: replace
         path: "/spec/orgId"
         value: "trondelagfylke.no"
@@ -31,12 +31,12 @@ patches:
         value: "trondelagfylke.no"
     target:
       kind: Application
-      name: fint-utdanning-larling-adapter
+      name: fint-utdanning-ot-adapter
 
   - patch: |-
       - op: replace
         path: "/metadata/labels/app.kubernetes.io~1instance"
-        value: "fint-utdanning-larling-adapter_trondelagfylke_no"
+        value: "fint-utdanning-ot-adapter_trondelagfylke_no"
       - op: replace
         path: "/spec/orgId"
         value: "trondelagfylke.no"
