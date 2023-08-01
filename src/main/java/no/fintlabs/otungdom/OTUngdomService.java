@@ -49,9 +49,9 @@ public class OTUngdomService {
         identifikator.setIdentifikatorverdi(fodselsNummer);
         otungdomResource.setSystemId(identifikator);
 
-        otungdomResource.addPerson(Link.with(PersonResource.class, "utdanning/larling/person/systemid", fodselsNummer));
-        otungdomResource.addEnhet(Link.with(OTEnhetResource.class, "utdanning/kodeverk/otenhet/systemid", otUngdomData.getOtData().getTilknytningnr()));
-        otungdomResource.addStatus(Link.with(OTStatusResource.class, "utdanning/kodeverk/otstatus/systemid", otUngdomData.getOtData().getAktivitetskode()));
+        otungdomResource.addPerson(Link.with(PersonResource.class, "fodselsnummer", fodselsNummer));
+        otungdomResource.addEnhet(Link.with(OTEnhetResource.class, "systemid", otUngdomData.getOtData().getTilknytningnr()));
+        otungdomResource.addStatus(Link.with(OTStatusResource.class, "systemid", otUngdomData.getOtData().getAktivitetskode()));
         otungdomResource.addSelf(Link.with(OTUngdomResource.class, "systemid", fodselsNummer));
 
         return otungdomResource;
