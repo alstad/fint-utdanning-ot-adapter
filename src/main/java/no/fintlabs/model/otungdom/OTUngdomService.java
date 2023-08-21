@@ -1,4 +1,4 @@
-package no.fintlabs.otungdom;
+package no.fintlabs.model.otungdom;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

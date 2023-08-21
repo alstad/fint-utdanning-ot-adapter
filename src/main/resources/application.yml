@@ -8,6 +8,12 @@ fint:
     org-id: fintlabs.no
     heartbeat-interval: 1
     capabilities:
+      person:
+        domain-name: utdanning
+        packageName: ot
+        resource-name: person
+        fullSyncIntervalInDays: 1
+        deltaSyncInterval: IMMEDIATE
       otungdom:
         domain-name: utdanning
         packageName: ot
