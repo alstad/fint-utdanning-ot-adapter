@@ -1,7 +1,7 @@
 package no.fintlabs.model.otungdom;
 
 import lombok.extern.slf4j.Slf4j;
-import no.fint.model.resource.utdanning.ot.OTUngdomResource;
+import no.fint.model.resource.utdanning.ot.OtUngdomResource;
 import no.fintlabs.adapter.config.AdapterProperties;
 import no.fintlabs.adapter.datasync.ResourceSubscriber;
 import no.fintlabs.adapter.models.AdapterCapability;
@@ -12,9 +12,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Slf4j
 @Service
-public class OTUngdomSubscriber extends ResourceSubscriber<OTUngdomResource, OTUngdomPublisher> {
+public class OtUngdomSubscriber extends ResourceSubscriber<OtUngdomResource, OtUngdomPublisher> {
 
-    protected OTUngdomSubscriber(WebClient webClient, AdapterProperties props, OTUngdomPublisher publisher, ValidatorService<OTUngdomResource> validatorService) {
+    protected OtUngdomSubscriber(WebClient webClient, AdapterProperties props, OtUngdomPublisher publisher, ValidatorService<OtUngdomResource> validatorService) {
         super(webClient, props, publisher, validatorService);
     }
 
@@ -24,7 +24,7 @@ public class OTUngdomSubscriber extends ResourceSubscriber<OTUngdomResource, OTU
     }
 
     @Override
-    protected SyncPageEntry<OTUngdomResource> createSyncPageEntry(OTUngdomResource resource) {
+    protected SyncPageEntry<OtUngdomResource> createSyncPageEntry(OtUngdomResource resource) {
         return SyncPageEntry.of(resource.getSystemId().getIdentifikatorverdi(), resource);
     }
 }

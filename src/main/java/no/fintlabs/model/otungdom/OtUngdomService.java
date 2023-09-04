@@ -5,9 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.resource.Link;
 import no.fint.model.resource.felles.PersonResource;
-import no.fint.model.resource.utdanning.kodeverk.OTEnhetResource;
-import no.fint.model.resource.utdanning.kodeverk.OTStatusResource;
-import no.fint.model.resource.utdanning.ot.OTUngdomResource;
+import no.fint.model.resource.utdanning.kodeverk.OtEnhetResource;
+import no.fint.model.resource.utdanning.kodeverk.OtStatusResource;
+import no.fint.model.resource.utdanning.ot.OtUngdomResource;
 import no.fintlabs.restutil.RestUtil;
 import no.fintlabs.restutil.model.OTUngdomData;
 import no.fintlabs.restutil.model.RequestData;
@@ -18,21 +18,21 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class OTUngdomService {
+public class OtUngdomService {
 
     private final RestUtil restUtil;
 
-    public OTUngdomService(RestUtil restUtil) {
+    public OtUngdomService(RestUtil restUtil) {
         this.restUtil = restUtil;
     }
 
-    public List<OTUngdomResource> getOTUngdomResources() {
-        List<OTUngdomResource> otungdomResources = new ArrayList<>();
+    public List<OtUngdomResource> getOtUngdomResources() {
+        List<OtUngdomResource> otungdomResources = new ArrayList<>();
         RequestData requestData = restUtil.getRequestData().block();
 
         if (requestData != null) {
             requestData.getOtungdommer().forEach(otUngdomData -> {
-                OTUngdomResource otungdomResource = createOTUngdomResource(otUngdomData);
+                OtUngdomResource otungdomResource = createOtUngdomResource(otUngdomData);
                 otungdomResources.add(otungdomResource);
             });
         }
@@ -41,8 +41,8 @@ public class OTUngdomService {
     }
 
     @SneakyThrows
-    private OTUngdomResource createOTUngdomResource(OTUngdomData otUngdomData) {
-        OTUngdomResource otungdomResource = new OTUngdomResource();
+    private OtUngdomResource createOtUngdomResource(OTUngdomData otUngdomData) {
+        OtUngdomResource otungdomResource = new OtUngdomResource();
         String fodselsNummer = otUngdomData.getPerson().getFodselsnummer();
 
         Identifikator identifikator = new Identifikator();
@@ -50,9 +50,9 @@ public class OTUngdomService {
         otungdomResource.setSystemId(identifikator);
 
         otungdomResource.addPerson(Link.with(PersonResource.class, "fodselsnummer", fodselsNummer));
-        otungdomResource.addEnhet(Link.with(OTEnhetResource.class, "utdanning/kodeverk/otenhet/systemid", otUngdomData.getOtData().getTilknytningnr()));
-        otungdomResource.addStatus(Link.with(OTStatusResource.class, "utdanning/kodeverk/otstatus/systemid", otUngdomData.getOtData().getAktivitetskode()));
-        otungdomResource.addSelf(Link.with(OTUngdomResource.class, "systemid", fodselsNummer));
+        otungdomResource.addEnhet(Link.with(OtEnhetResource.class, "utdanning/kodeverk/otenhet/systemid", otUngdomData.getOtData().getTilknytningnr()));
+        otungdomResource.addStatus(Link.with(OtStatusResource.class, "utdanning/kodeverk/otstatus/systemid", otUngdomData.getOtData().getAktivitetskode()));
+        otungdomResource.addSelf(Link.with(OtUngdomResource.class, "systemid", fodselsNummer));
 
         return otungdomResource;
     }

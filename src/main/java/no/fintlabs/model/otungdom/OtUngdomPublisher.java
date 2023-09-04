@@ -1,7 +1,7 @@
 package no.fintlabs.model.otungdom;
 
 import lombok.extern.slf4j.Slf4j;
-import no.fint.model.resource.utdanning.ot.OTUngdomResource;
+import no.fint.model.resource.utdanning.ot.OtUngdomResource;
 import no.fintlabs.adapter.config.AdapterProperties;
 import no.fintlabs.adapter.datasync.ResourcePublisher;
 import no.fintlabs.adapter.datasync.ResourceRepository;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class OTUngdomPublisher extends ResourcePublisher<OTUngdomResource, ResourceRepository<OTUngdomResource>> {
+public class OtUngdomPublisher extends ResourcePublisher<OtUngdomResource, ResourceRepository<OtUngdomResource>> {
 
-    public OTUngdomPublisher(OTUngdomRepository repository, AdapterProperties adapterProperties) {
+    public OtUngdomPublisher(OtUngdomRepository repository, AdapterProperties adapterProperties) {
         super(repository, adapterProperties);
     }
 
