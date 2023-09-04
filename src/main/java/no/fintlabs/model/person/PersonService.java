@@ -8,8 +8,7 @@ import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
 import no.fint.model.felles.kompleksedatatyper.Personnavn;
 import no.fint.model.resource.Link;
 import no.fint.model.resource.felles.PersonResource;
-import no.fint.model.resource.utdanning.larling.LarlingResource;
-import no.fint.model.utdanning.ot.OTUngdom;
+import no.fint.model.utdanning.ot.OtUngdom;
 import no.fintlabs.restutil.RestUtil;
 import no.fintlabs.restutil.model.PersonData;
 import no.fintlabs.restutil.model.RequestData;
@@ -68,7 +67,7 @@ public class PersonService {
             kontaktinformasjon.setMobiltelefonnummer(personData.getMobilnummer());
         personResource.setKontaktinformasjon(kontaktinformasjon);
 
-        personResource.addOtungdom(Link.with(OTUngdom.class, "systemid", fodselsNummer));
+        personResource.addOtungdom(Link.with(OtUngdom.class, "systemid", fodselsNummer));
         personResource.addSelf(Link.with(Person.class, "fodselsnummer", fodselsNummer));
 
         return personResource;
